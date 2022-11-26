@@ -1,6 +1,6 @@
-import React, { useMemo } from 'react';
-import {Text, View} from 'react-native';
-
+import React, { useEffect, useMemo } from 'react';
+import {View} from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { dataDesa, dataKecamatan, Kota } from '../../../pages/SignUpAddress/data';
 import {useForm} from '../../../utils';
@@ -10,7 +10,6 @@ import {Gap, Select, TextInput} from '../../atoms';
  let dataPullDesa={} ;
 const SignUpProvinsi = () => {
 
-  console.log('SignUpProvinsi');
   const [form, setForm] = useForm({
     nama_kota: '',
     kota: '',
@@ -19,6 +18,11 @@ const SignUpProvinsi = () => {
     nama_desa: '',
     desa: '',
   });
+const dispatch = useDispatch();
+  useEffect(()=>{
+
+dispatch({type: 'SET_ADDRESS', value: form});
+  },[form]);
 
 
  if(form.kota > 0)
@@ -49,9 +53,17 @@ const SignUpProvinsi = () => {
 
      if(data.kecamatan_id===form.kecamatan)
      {
-         form.nama_kecamatan = data.value
+
         return data
      }
+    dataKecamatan.filter((data,index)=>{
+
+     if(data.kecamatan_id===form.kecamatan)
+     {
+         form.nama_kecamatan = data.value
+
+     }
+})
 })
   }
 
@@ -96,7 +108,7 @@ const memoKecamatan = useMemo(()=>{
             namaSelect="Pilih Desa"/>
   },[form.desa,dataPullDesa])
 
-console.log('form.desa',form)
+
   return (
     <View>
           <Gap height={16} />

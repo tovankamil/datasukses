@@ -3,7 +3,7 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
-  SignIn,  SplashScreen,SignUp,SignUpAddress
+  SignIn,  SplashScreen,SignUp,SignUpAddress, ValidasiSignUp
 } from '../pages';
 
 
@@ -40,6 +40,11 @@ const Router = () => {
       <Stack.Screen
         name="SignUpAddress"
         component={SignUpAddress}
+        options={{headerShown: false}}
+      />
+        <Stack.Screen
+        name="ValidasiSignUp"
+        component={ValidasiSignUp}
         options={{headerShown: false}}
       />
       {/* <Stack.Screen

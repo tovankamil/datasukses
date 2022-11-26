@@ -9,7 +9,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {View, Text} from 'react-native';
-import {SignIn, SignUp,SignUpAddress} from './pages';
+import {SignIn, SignUp,SignUpAddress, ValidasiSignUp} from './pages';
 
 import Router from '../src/router';
 import {Provider} from 'react-redux';
@@ -19,8 +19,9 @@ const App = () => {
   return (
     <NavigationContainer>
       <Provider store ={store}>
-        {/* <Router /> */}
-        <SignUpAddress/>
+        <Router />
+        {/* <SignUpAddress/> */}
+        {/* <ValidasiSignUp/> */}
       </Provider>
     </NavigationContainer>
   );

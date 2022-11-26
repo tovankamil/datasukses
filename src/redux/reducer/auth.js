@@ -2,42 +2,51 @@ const initStateRegister = {
   nama: '',
   password: '',
   hp: '',
-  umur:'',
+  umur: '',
   jenisKelamin: '',
-  koordinator:'',
-  alamat:'',
-    kota:'',
-    kecamatan:'',
-    desa:'',
-    nik:''
-
+  koordinator: '',
+  alamat: '',
+  nama_kota: '',
+  kota: '',
+  nama_kecamatan: '',
+  kecamatan: '',
+  nama_desa: '',
+  desa: '',
+  nik: '',
 };
 
 export const registerReducer = (state = initStateRegister, action) => {
   if (action.type === 'SET_REGISTER')
     return {
       ...state,
-        nama:action.value.nama,
-        password:action.value.password,
-        hp:action.value.hp,
-        jenisKelamin:action.value.jenisKelamin,
+      nama: action.value.nama,
+      password: action.value.password,
+      hp: action.value.hp,
+      jenisKelamin: action.value.jenisKelamin,
+      koordinator: action.value.koordinator,
+      umur: action.value.umur,
     };
 
   if (action.type === 'SET_ADDRESS')
     return {
       ...state,
-      alamat: action.value.alamat,
+      nama_kota: action.value.nama_kota,
       kota: action.value.kota,
+      nama_kecamatan: action.value.nama_kecamatan,
       kecamatan: action.value.kecamatan,
-      kelurahan: action.value.kelurahan,
-      nik: action.value.nik,
+      nama_desa: action.value.nama_desa,
+      desa: action.value.desa,
     };
 
-     if (action.type === 'SET_ALAMAT')
+  if (action.type === 'SET_ALAMAT')
     return {
       ...state,
       alamat: action.value.alamat,
-
+    };
+  if (action.type === 'SET_NIK')
+    return {
+      ...state,
+      nik: action.value.nik,
     };
   return state;
 };

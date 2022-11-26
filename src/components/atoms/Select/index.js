@@ -109,7 +109,7 @@ const Select = ({label, value, onSelectChange,namaSelect ,datax}) => {
           >
             <Picker.Item label="Pilih Desa" value={0} key={0} />
             {datax && datax.map((data,index)=>{
-                return   <Picker.Item label={data.value} value={data.kecamatan_id} key={index} />
+                return   <Picker.Item label={data.value} value={data.desa_id} key={index} />
             })}
 
 

@@ -25,7 +25,6 @@ const [form,setForm] = useForm({
   koordinator:''
 })
 
-// console.log(form)
 // RADIO BUTTON
    const radioButtonsData = [{
     id: '1', // acts as primary key, should be unique and non-empty string
@@ -100,8 +99,7 @@ setErrordata(errordata => ({
   }
 
 }
-// RADIO BUTTON
-console.log('errordata',errordata)
+
   return (
       <ScrollView contentContainerStyle={{flexGrow:1}}>
     <View style={styles.page}>
