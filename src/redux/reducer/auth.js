@@ -32,5 +32,12 @@ export const registerReducer = (state = initStateRegister, action) => {
       kelurahan: action.value.kelurahan,
       nik: action.value.nik,
     };
+
+     if (action.type === 'SET_ALAMAT')
+    return {
+      ...state,
+      alamat: action.value.alamat,
+
+    };
   return state;
 };

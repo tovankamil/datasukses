@@ -11,7 +11,7 @@ const TextInput = ({placeholder,label,numeric, ...restProps}) =>{
     )
 }
 
-export default TextInput;
+export default React.memo(TextInput);
 
 const styles = StyleSheet.create({
     label:{
