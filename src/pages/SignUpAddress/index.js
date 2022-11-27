@@ -1,11 +1,10 @@
-import React, {useMemo} from 'react';
+import React, {useMemo, useState} from 'react';
 import {StyleSheet, ScrollView, View, Text} from 'react-native';
 import {useSelector} from 'react-redux';
 import {
   Button,
   Gap,
   Header,
-  RadioButton,
   SignUpAlamat,
   SignUpNik,
   SignUpProvinsi,
@@ -22,6 +21,10 @@ const SignUpAddress = ({navigation}) => {
     nama_desa: '',
     desa: '',
   });
+ const [errordata ,setErrordata] = useState({
+ error:''
+ });
+
 
   const dSignUpNik = useMemo(() => {
     return <SignUpNik />;
@@ -41,11 +44,63 @@ const SignUpAddress = ({navigation}) => {
       />
     );
   }, []);
-
+let msg ='';
   const onSubmit = () => {
-    navigation.navigate('ValidasiSignUp')
-  };
 
+    if(globalState['alamat'].length==0)
+    {
+      msg ='error'
+       setErrordata(errordata => ({
+      ...errordata,error:'Mohon Masukan Alamat'
+    }));
+    }
+
+     else  if(globalState['nama_kota'].length==0)
+    {
+      msg ='error'
+       setErrordata(errordata => ({
+      ...errordata,error:'Pilih Kota Terlebih Dahulu'
+    }));
+    }
+   else if(globalState['nama_kecamatan'].length==0)
+    {
+      msg ='error'
+       setErrordata(errordata => ({
+      ...errordata,error:'Pilih Kecamatan Terlebih Dahulu'
+    }));
+    }
+     else if(globalState['nama_desa'].length==0)
+    {
+      msg ='error'
+       setErrordata(errordata => ({
+      ...errordata,error:'Pilih Desa Terlebih Dahulu'
+    }));
+    }
+       else if(globalState['nik'].length==0)
+    {
+      msg ='error'
+       setErrordata(errordata => ({
+      ...errordata,error:'Mohon Masukan NIK Anda'
+    }));
+    }
+
+        else if(globalState['nik'].length !=16)
+    {
+      msg ='error'
+       setErrordata(errordata => ({
+      ...errordata,error:'Mohon Masukan NIK Anda 16 digit'
+    }));
+    }
+    else{
+         setErrordata(errordata => ({
+      ...errordata,error:''
+    }));
+        console.log('berhasil')
+    }
+
+     navigation.navigate('ValidasiSignUp')
+  };
+console.log(errordata)
   return (
     <ScrollView contentContainerStyle={{flexGrow: 1}}>
       <Header
@@ -55,6 +110,8 @@ const SignUpAddress = ({navigation}) => {
       />
       <View style={styles.container}>
         <View style={styles.page}>
+          <Text style={styles.error}> {errordata.error &&`Error :${errordata.error}`}</Text>
+           <Gap height={13} />
           {dSignUpAlamat}
           {dSignUpProvinsi}
           <Gap height={16} />
@@ -85,4 +142,7 @@ const styles = StyleSheet.create({
     marginTop: 24,
     flex: 1,
   },
+  error:{
+    color:'red'
+  }
 });

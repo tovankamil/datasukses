@@ -45,7 +45,7 @@ const [form,setForm] = useForm({
     label: "Pedesaan",
     value: "PD"
 }];
- let updatedValue = {};
+
  let msg ='';
 const dispatch = useDispatch();
 const onSubmit = () =>{
