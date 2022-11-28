@@ -8,8 +8,7 @@
 
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {View, Text} from 'react-native';
-import {SignIn, SignUp,SignUpAddress, ValidasiSignUp} from './pages';
+
 
 import Router from '../src/router';
 import {Provider, useSelector} from 'react-redux';

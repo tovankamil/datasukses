@@ -1,4 +1,4 @@
-package com.testing.newarchitecture.modules;
+package com.tofan.testing.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

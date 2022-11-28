@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
 
-import {Picker} from '@react-native-picker/picker';
+import {Picker} from '@react-native-community/picker';
 
 const Desa = ({label, value, onSelectChange,namaSelect ,datax})=> {
      const Pilih = () =>{
