@@ -53,7 +53,7 @@ const onSubmit = () =>{
 setErrordata(errordata => ({
       errordata
     }));
-  // console.log('form',form.nama.length);
+
   if(form.nama.length==0){
     msg ='error';
    setErrordata(errordata => ({

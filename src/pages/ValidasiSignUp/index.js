@@ -1,14 +1,21 @@
-import React, { useEffect } from 'react';
-import {Text, View,StyleSheet, ScrollView} from 'react-native';
-import { useSelector } from 'react-redux';
-import {Gap, GroupValidasi, Header} from '../../components';
-
+import React, {useEffect} from 'react';
+import {Text, View, StyleSheet, ScrollView} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {Gap, GroupValidasi, Header,Button} from '../../components';
+import {setLoading, signUpAction} from '../../redux/action';
 export const ValidasiSignUp = ({navigation}) => {
-     const globalState = useSelector(state=>state.registerReducer);
+  const globalState = useSelector(state => state.registerReducer);
+  const dispatch = useDispatch();
 
-console.log(globalState)
+  const onSubmit = () => {
+
+
+  dispatch(setLoading(true));
+ dispatch(signUpAction(globalState, navigation));
+
+  }
   return (
-  <ScrollView contentContainerStyle={{flexGrow: 1}}>
+    <ScrollView contentContainerStyle={{flexGrow: 1}}>
       <Header
         title="Validasi Data"
         subTitle="Mohon periksa kembali data anda"
@@ -16,63 +23,51 @@ console.log(globalState)
       />
       <View style={styles.container}>
         <View style={styles.page}>
-            <Text style={styles.registrasi}>Data Registrasi :</Text>
-              <Gap height={16}/>
-            {(globalState && typeof globalState !='undefined' && Object.keys(globalState).length >0) &&
-            Object.keys(globalState).map((data,index)=>{
-                console.log('Object.keys(data).valuex',data)
-                if(data.replace(/^\s+|\s+$/gm,'') !=="desa" && data.replace(/^\s+|\s+$/gm,'') !=="kota"  && data.replace(/^\s+|\s+$/gm,'') !=="kecamatan")
-                {
-                      return(
-                        <GroupValidasi key={index} nama={data.replace("_"," ")} title={globalState[data]}/>
+          <Text style={styles.registrasi}>Data Registrasi :</Text>
+          <Gap height={16} />
+          {globalState &&
+            typeof globalState != 'undefined' &&
+            Object.keys(globalState).length > 0 &&
+            Object.keys(globalState).map((data, index) => {
 
-                    // <Text key={index}>{data.replace("_"," ")} {globalState[data]}</Text>
-                )
+              if (
+                data.replace(/^\s+|\s+$/gm, '') !== 'desa' &&
+                data.replace(/^\s+|\s+$/gm, '') !== 'kota' &&
+                data.replace(/^\s+|\s+$/gm, '') !== 'kecamatan'
+              ) {
+                return (
+                  <GroupValidasi
+                    key={index}
+                    nama={data.replace('_', ' ')}
+                    title={globalState[data]}
+                  />
 
-                }
-                //  if(data.replace(/^\s+|\s+$/gm,'') !=="kecamatan")
-                // {
-                //       return(
-                //         <GroupValidasi key={index} nama={data.replace("_"," ")} title={globalState[data]}/>
+                  // <Text key={index}>{data.replace("_"," ")} {globalState[data]}</Text>
+                );
+              }
+            })}
 
-                //     // <Text key={index}>{data.replace("_"," ")} {globalState[data]}</Text>
-                // )
-
-                // }
-
-                //  if(data.replace(/^\s+|\s+$/gm,'') !=="desa")
-                // {
-                //       return(
-                //         <GroupValidasi key={index} nama={data.replace("_"," ")} title={globalState[data]}/>
-
-                //     // <Text key={index}>{data.replace("_"," ")} {globalState[data]}</Text>
-                // )
-
-                // }
-
-
-
-            })
-
-          }
-
-
-
+          <Gap height={46} />
+          <Button
+            text="Submit"
+            color="#0EA137"
+            textColor="#F9F9F9"
+            onPress={onSubmit}
+          />
         </View>
       </View>
-  </ScrollView>
+    </ScrollView>
   );
 };
 
 export default ValidasiSignUp;
 const styles = StyleSheet.create({
-    registrasi:{
-        fontSize:16,
-        fontWeight:'bold'
-    },
+  registrasi: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
   page: {
     flex: 1,
-
   },
   container: {
     backgroundColor: 'white',
@@ -81,8 +76,5 @@ const styles = StyleSheet.create({
     marginTop: 24,
     flex: 1,
   },
-groupvalidasi:{
-
-
-}
+  groupvalidasi: {},
 });

@@ -101,7 +101,7 @@ const memoKecamatan = useMemo(()=>{
 
 
   const memoDesa = useMemo(()=>{
-      return  <Select label="Pilih Desa'"
+      return  <Select label="Pilih Desa"
             value={form.desa}
             datax={dataPullDesa}
             onSelectChange={value => setForm('desa', value)}

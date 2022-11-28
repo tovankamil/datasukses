@@ -95,12 +95,12 @@ let msg ='';
          setErrordata(errordata => ({
       ...errordata,error:''
     }));
-        console.log('berhasil')
+
     }
 
      navigation.navigate('ValidasiSignUp')
   };
-console.log(errordata)
+
   return (
     <ScrollView contentContainerStyle={{flexGrow: 1}}>
       <Header

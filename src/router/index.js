@@ -3,7 +3,7 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
-  SignIn,  SplashScreen,SignUp,SignUpAddress, ValidasiSignUp
+  SignIn,  SplashScreen,SignUp,SignUpAddress, ValidasiSignUp, Home
 } from '../pages';
 
 
@@ -22,17 +22,17 @@ const Stack = createNativeStackNavigator();
 const Router = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen
+      {/* <Stack.Screen
         name="SplashScreen"
         component={SplashScreen}
         options={{headerShown: false}}
-      />
+      /> */}
       <Stack.Screen
         name="SignIn"
         component={SignIn}
         options={{headerShown: false}}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="SignUp"
         component={SignUp}
         options={{headerShown: false}}
@@ -45,6 +45,12 @@ const Router = () => {
         <Stack.Screen
         name="ValidasiSignUp"
         component={ValidasiSignUp}
+        options={{headerShown: false}}
+      /> */}
+
+          <Stack.Screen
+        name="Home"
+        component={Home}
         options={{headerShown: false}}
       />
       {/* <Stack.Screen

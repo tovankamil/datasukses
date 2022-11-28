@@ -14,13 +14,11 @@ const RadionButton = ({labelRadio, label,form,setForm}) => {
 
         if(val.value==='L' || val.value==='P' )
         {
-             console.log(val.value)
            setForm('jenisKelamin',val.value);
         // dispatch({type: 'SET_REGISTER', value: form});
         }
         if(val.value==='KC' || val.value==='PD' )
         {
-          console.log(val.value)
            setForm('koordinator',val.value);
           // dispatch({type: 'SET_REGISTER', value: form});
         }

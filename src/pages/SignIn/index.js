@@ -1,28 +1,32 @@
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import Axios from 'axios';
 import { StyleSheet, Text, View } from 'react-native'
 import { Button, Gap, Header, TextInput } from '../../components'
-import { useForm } from '../../utils'
-import { useSelector } from 'react-redux';
-
+import { getData, useForm } from '../../utils'
+import { useDispatch, useSelector } from 'react-redux';
+import { signInAction } from '../../redux/action/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {removeData} from '../../utils'
 const SignIn = ({navigation}) => {
-  const globalState = useSelector(state=>state.globalReducer)
   const [form,setForm] = useForm({
-  email:'',
+  nik:'',
   password:''
 })
+const dispatch = useDispatch();
+useEffect(()=>{
+  getData('token').then((res)=>{
+    if(res){
+      navigation.reset({index:0,routes:[{name:'Home'}]})
+    }
+  })
+})
   const onSubmit = () => {
-    console.log('http://192.168.1.5:8080/testapi2',form);
-    Axios.get('https://aghniya.co.id/api')
-    .then(res =>{
-      console.log('success',res);
-    })
-    .catch(er =>{
-      console.log('error',er);
-    });
 
-
+    // REMOVE TOKEN
+   removeData('token');
+   removeData('userProfile');
+    dispatch(signInAction(form, navigation));
   };
 
   return (
@@ -30,8 +34,8 @@ const SignIn = ({navigation}) => {
 
         <Header title="Login"   />
         <View style={styles.container}>
-          <TextInput label="NIK" placeholder="Masukan NIK"  value={form.email}
-            onChangeText={(value) => setForm('email', value)}/>
+          <TextInput label="NIK" placeholder="Masukan NIK"  value={form.nik}
+            onChangeText={(value) => setForm('nik', value)}/>
           <Gap height={16}/>
           <TextInput label="Password" placeholder="Masukan Password"   value={form.password}
             onChangeText={(value) => setForm('password', value)}
