@@ -3,7 +3,11 @@ import SignIn from './SignIn';
 import SignUp from './SignUp';
 import SignUpAddress from './SignUpAddress';
 import ValidasiSignUp from './ValidasiSignUp';
-import Home from './Home';
+import HomeData from './HomeData';
+import TambahKoresponden from './TambahKoresponden';
+import Profile from './Profile';
+import FormKoresponden from './FormKoresponden';
+import DataKoresponden from './DataKoresponden';
 
 
-export {SplashScreen,SignIn,SignUp,SignUpAddress,ValidasiSignUp,Home};
+export {SplashScreen,SignIn,SignUp,SignUpAddress,ValidasiSignUp,HomeData,TambahKoresponden,Profile,FormKoresponden,DataKoresponden};

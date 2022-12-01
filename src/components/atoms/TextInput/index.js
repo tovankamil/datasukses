@@ -22,9 +22,10 @@ const styles = StyleSheet.create({
     },
     input:{
         borderWidth:1,
-        borderColor:'#020202',
+        borderColor:'#ddd',
         borderRadius:8,
         padding:5,
+        paddingHorizontal:12
 
     }
 })

@@ -1,5 +1,6 @@
 import ICLogo from './logo.png';
 import ICBack from './ic-back.svg';
+import ICNext from './ic-next.svg';
 import SVGLogo from './logo.svg';
 import BOXLogo from './logobox.png';
 import Home_off from './home.svg';
@@ -10,4 +11,5 @@ import Home_on from './home_on.svg';
 import Koresponden_on from './personalcard_on.svg';
 import TambahKoresponden_on from './profile-add_on.svg';
 import Profile_on from './profile-circle_on.svg';
-export {ICLogo,SVGLogo,BOXLogo,ICBack,Home_off,Home_on,Koresponden_off,Koresponden_on,Profile_off,Profile_on,TambahKoresponden_off,TambahKoresponden_on};
+import UserKoresponden from './koresponden.svg';
+export {ICNext,ICLogo,SVGLogo,BOXLogo,ICBack,Home_off,Home_on,Koresponden_off,Koresponden_on,Profile_off,Profile_on,TambahKoresponden_off,TambahKoresponden_on,UserKoresponden};

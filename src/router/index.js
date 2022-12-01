@@ -1,23 +1,33 @@
 import React from 'react';
 
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-// import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
-  SignIn,  SplashScreen,SignUp,SignUpAddress, ValidasiSignUp, Home
+  SignIn,
+  SplashScreen,
+  SignUp,
+  SignUpAddress,
+  ValidasiSignUp,
+  HomeData,
+  Profile,
+  DataKoresponden,
+  FormKoresponden,
 } from '../pages';
-
+import {BottomNavigator} from '../components';
 
 const Stack = createNativeStackNavigator();
-// const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
-// const MainApp = () => {
-//   return (
-//     <Tab.Navigator tabBar={(props) => <BottomNavigator {...props} />}>
-//       <Tab.Screen name="Home" component={Home} />
-//       <Tab.Screen name="Profile" component={Profile} />
-//     </Tab.Navigator>
-//   );
-// };
+const MainApp = () => {
+  return (
+    <Tab.Navigator tabBar={props => <BottomNavigator {...props} />}>
+      {/* <Tab.Screen name="HomeData" component={HomeData} /> */}
+      <Tab.Screen name="Data" component={DataKoresponden} />
+      <Tab.Screen name="Add" component={TambahKoresponden} />
+      <Tab.Screen name="Profile" component={Profile} />
+    </Tab.Navigator>
+  );
+};
 
 const Router = () => {
   return (
@@ -42,15 +52,26 @@ const Router = () => {
         component={SignUpAddress}
         options={{headerShown: false}}
       />
-        <Stack.Screen
+      <Stack.Screen
         name="ValidasiSignUp"
         component={ValidasiSignUp}
         options={{headerShown: false}}
       />
 
-          <Stack.Screen
+      <Stack.Screen
         name="Home"
-        component={Home}
+        component={HomeData}
+        options={{headerShown: false}}
+      />
+
+      <Stack.Screen
+        name="DataKoresponden"
+        component={DataKoresponden}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="FormKoresponden"
+        component={FormKoresponden}
         options={{headerShown: false}}
       />
       {/* <Stack.Screen
