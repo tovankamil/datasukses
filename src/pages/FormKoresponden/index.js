@@ -1,26 +1,35 @@
-import React from 'react'
-import { Text, View,StyleSheet } from 'react-native'
-import { Button, Header, HomeTabSection } from '../../components'
+import React, {useEffect} from 'react';
+import {Text, View, StyleSheet} from 'react-native';
+import {useDispatch} from 'react-redux';
+import {Button, Header, HomeTabSection} from '../../components';
+import {dataProvinsi} from '../../redux/action';
 
 export default function FormKoresponden({navigation}) {
-    const onPressLearnMore = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(dataProvinsi());
+  }, []);
+  const onPressLearnMore = () => {
     console.log('onPressLearnMore');
   };
   return (
-    <View style={styles.content} >
-  <Header title="Koresponden" subTitle="Form Koresponden" onBack={() => navigation.goBack()} />
-  {/* Tab */}
-  <View style={styles.content}>
-    <HomeTabSection/>
-  </View>
-    <View style={styles.buttonContainer}>
-
+    <View style={styles.content}>
+      <Header
+        title="Koresponden"
+        subTitle="Form Koresponden"
+        onBack={() => navigation.goBack()}
+      />
+      {/* Tab */}
+      <View style={styles.content}>
+        <HomeTabSection />
+      </View>
+      <View style={styles.buttonContainer}>
         <View style={styles.boxButton}>
           <Button
             style={styles.button}
             onPress={onPressLearnMore}
             text="Simpan"
-            textColor = '#F9F9F9'
+            textColor="#F9F9F9"
             color="red"
           />
         </View>
@@ -29,37 +38,34 @@ export default function FormKoresponden({navigation}) {
             style={styles.button}
             onPress={onPressLearnMore}
             text="Draft"
-            textColor = '#F9F9F9'
+            textColor="#F9F9F9"
             color="green"
           />
         </View>
       </View>
-  {/* end tab   */}
+      {/* end tab   */}
     </View>
-  )
+  );
 }
 
-const styles =StyleSheet.create({
-  content:{
-    flex:1
+const styles = StyleSheet.create({
+  content: {
+    flex: 1,
   },
-    buttonContainer: {
+  buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
 
-    backgroundColor:'white'
+    backgroundColor: 'white',
   },
   boxButton: {
-
     padding: 10,
-
 
     justifyContent: 'center',
   },
-    button: {
-
+  button: {
     width: '50%',
     color: 'red',
   },
-})
+});

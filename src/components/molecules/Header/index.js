@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import { Text, StyleSheet, View ,TouchableOpacity} from 'react-native'
-import { ICBack } from '../../../assets/icon';
+import React, {Component} from 'react';
+import {Text, StyleSheet, View, TouchableOpacity} from 'react-native';
+import {ICBack} from '../../../assets/icon';
 
 const Header = ({title, subTitle, onBack}) => {
   return (
@@ -31,8 +31,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  title: {fontSize: 22, fontFamily: 'Poppins-Medium', color: '#020202'},
-  subTitle: {fontSize: 14, fontFamily: 'Poppins-Light', color: '#8D92A3'},
+  title: {
+    fontSize: 22,
+    fontFamily: 'Poppins-Medium',
+    lineHeight: 29,
+    color: '#020202',
+  },
+  subTitle: {
+    fontSize: 13,
+    fontFamily: 'Poppins-Light',
+    color: '#8D92A3',
+    lineHeight: 15,
+  },
   back: {
     padding: 16,
     marginRight: 16,

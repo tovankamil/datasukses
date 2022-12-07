@@ -12,4 +12,21 @@ import Koresponden_on from './personalcard_on.svg';
 import TambahKoresponden_on from './profile-add_on.svg';
 import Profile_on from './profile-circle_on.svg';
 import UserKoresponden from './koresponden.svg';
-export {ICNext,ICLogo,SVGLogo,BOXLogo,ICBack,Home_off,Home_on,Koresponden_off,Koresponden_on,Profile_off,Profile_on,TambahKoresponden_off,TambahKoresponden_on,UserKoresponden};
+import IconUserDetail from './IconUserDetail.svg';
+export {
+  ICNext,
+  ICLogo,
+  SVGLogo,
+  BOXLogo,
+  ICBack,
+  Home_off,
+  Home_on,
+  Koresponden_off,
+  Koresponden_on,
+  Profile_off,
+  Profile_on,
+  TambahKoresponden_off,
+  TambahKoresponden_on,
+  UserKoresponden,
+  IconUserDetail,
+};

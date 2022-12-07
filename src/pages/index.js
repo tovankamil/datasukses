@@ -8,6 +8,18 @@ import TambahKoresponden from './TambahKoresponden';
 import Profile from './Profile';
 import FormKoresponden from './FormKoresponden';
 import DataKoresponden from './DataKoresponden';
+import DetailKoresponden from './DetailKoresponden';
 
-
-export {SplashScreen,SignIn,SignUp,SignUpAddress,ValidasiSignUp,HomeData,TambahKoresponden,Profile,FormKoresponden,DataKoresponden};
+export {
+  SplashScreen,
+  SignIn,
+  SignUp,
+  SignUpAddress,
+  ValidasiSignUp,
+  HomeData,
+  TambahKoresponden,
+  Profile,
+  FormKoresponden,
+  DataKoresponden,
+  DetailKoresponden,
+};

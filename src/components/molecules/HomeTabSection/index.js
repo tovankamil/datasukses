@@ -1,14 +1,22 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {useEffect} from 'react';
-import {Dimensions, ScrollView, StyleSheet, Text, useWindowDimensions, View} from 'react-native';
+import React from 'react';
+import {
+  Dimensions,
+  ScrollView,
+  StyleSheet,
+  Text,
+  useWindowDimensions,
+  View,
+} from 'react-native';
 import {SceneMap, TabBar, TabView} from 'react-native-tab-view';
-import {useDispatch, useSelector} from 'react-redux';
-import { Gap, TextInput } from '../../atoms';
+import {Gap, TextInput} from '../../atoms';
+import DataKota from './DataKota';
+import DataKecamatan from './DataKecamatan';
+import DataDesa from './DataDesa';
 // import {getFoodDataByTypes} from '../../../redux/action';
 
 const Identitas = () => {
   return (
-
     <ScrollView>
       <View style={styles.tabViewContainer}>
         <View style={styles.tabView}>
@@ -22,6 +30,14 @@ const Identitas = () => {
           <Gap height={14} />
           <TextInput label="Alamat" placeholder="Masukan Alamat" />
           <Gap height={14} />
+
+          <Gap height={14} />
+
+          <DataKota />
+          <Gap height={14} />
+          <DataKecamatan />
+          <Gap height={14} />
+          <DataDesa />
         </View>
       </View>
     </ScrollView>
@@ -60,7 +76,6 @@ const Attribute = () => {
   );
 };
 
-
 const renderTabBar = props => (
   <TabBar
     {...props}
@@ -70,8 +85,6 @@ const renderTabBar = props => (
     tabStyle={{width: 'auto'}}
   />
 );
-
-
 
 const initialLayout = {width: Dimensions.get('window').width};
 
@@ -83,17 +96,15 @@ const HomeTabSection = () => {
     {key: '1', title: 'Identitas '},
     {key: '2', title: 'Q&A'},
     {key: '3', title: 'Attribute'},
-
   ]);
   const onPressLearnMore = () => {
     console.log('onPressLearnMore');
   };
-const renderScene = SceneMap({
-  1: Identitas,
-  2: QA,
-  3: Attribute,
-});
-
+  const renderScene = SceneMap({
+    1: Identitas,
+    2: QA,
+    3: Attribute,
+  });
 
   return (
     <TabView
@@ -110,14 +121,11 @@ const renderScene = SceneMap({
 export default HomeTabSection;
 
 const styles = StyleSheet.create({
-  tabViewContainer:{
-    paddingHorizontal:12,
-    paddingVertical:20
+  tabViewContainer: {
+    paddingHorizontal: 12,
+    paddingVertical: 20,
   },
-    tabView: {
+  tabView: {
     backgroundColor: 'white',
-
   },
-})
-
-
+});
