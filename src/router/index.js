@@ -33,7 +33,7 @@ const MainApp = () => {
 const Router = () => {
   return (
     <Stack.Navigator>
-      {/* <Stack.Screen
+      <Stack.Screen
         name="SplashScreen"
         component={SplashScreen}
         options={{headerShown: false}}
@@ -69,7 +69,7 @@ const Router = () => {
         name="DataKoresponden"
         component={DataKoresponden}
         options={{headerShown: false}}
-      /> */}
+      />
       <Stack.Screen
         name="FormKoresponden"
         component={FormKoresponden}

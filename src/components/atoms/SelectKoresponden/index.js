@@ -6,6 +6,7 @@ const SelectKoresponden = ({label, value, onSelectChange, data}) => {
   const Pilih = () => {
     return (
       <Picker
+        style={{color: 'black'}}
         selectedValue={value}
         onValueChange={itemValue => onSelectChange(itemValue)}
       >

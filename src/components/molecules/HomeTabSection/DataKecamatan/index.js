@@ -1,6 +1,6 @@
 import {Picker} from '@react-native-community/picker';
 import React, {useCallback, useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {dataDesa, dataKecamatan, setLoading} from '../../../../redux/action';
 import {useForm} from '../../../../utils';
@@ -23,7 +23,11 @@ const DataKecamatan = () => {
   const PilihKota = ({form, data}) => {
     if (form.id_kecamatan > 0) {
       return (
-        <Picker selectedValue={form} onValueChange={dispatchData}>
+        <Picker
+          style={{color: 'black'}}
+          selectedValue={form}
+          onValueChange={dispatchData}
+        >
           <Picker.Item label="Pilih Kecamatan" value={0} key={0} />
           {data.data_kecamatan.map((value, index) => {
             return (
@@ -38,18 +42,24 @@ const DataKecamatan = () => {
       );
     } else {
       return (
-        <Picker selectedValue={form} onValueChange={dispatchData}>
-          <Picker.Item label="Pilih Kecamatan" value={0} key={0} />
-          {data.data_kecamatan.map((value, index) => {
-            return (
-              <Picker.Item
-                key={index}
-                label={value.nama_kecamatan}
-                value={value.id_kecamatan}
-              />
-            );
-          })}
-        </Picker>
+        <View style={styles.input}>
+          <Picker
+            style={{color: '#000000'}}
+            selectedValue={form}
+            onValueChange={dispatchData}
+          >
+            <Picker.Item label="Pilih Kecamatan" value={0} key={0} />
+            {data.data_kecamatan.map((value, index) => {
+              return (
+                <Picker.Item
+                  key={index}
+                  label={value.nama_kecamatan}
+                  value={value.id_kecamatan}
+                />
+              );
+            })}
+          </Picker>
+        </View>
       );
     }
   };
@@ -75,3 +85,17 @@ const DataKecamatan = () => {
 };
 
 export default React.memo(DataKecamatan);
+const styles = StyleSheet.create({
+  label: {fontSize: 16, fontFamily: 'Poppins-Regular', color: '#020202'},
+  input: {
+    borderWidth: 1,
+    borderColor: '#020202',
+    borderRadius: 8,
+    paddingHorizontal: 2,
+    paddingVertical: 0,
+    color: 'black',
+    fontSize: 16,
+    fontFamily: 'Poppins-Regular',
+    color: '#020202',
+  },
+});

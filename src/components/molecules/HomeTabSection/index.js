@@ -1,5 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Dimensions,
   ScrollView,
@@ -9,10 +9,13 @@ import {
   View,
 } from 'react-native';
 import {SceneMap, TabBar, TabView} from 'react-native-tab-view';
+import CheckBox from '@react-native-community/checkbox';
 import {Gap, TextInput} from '../../atoms';
 import DataKota from './DataKota';
 import DataKecamatan from './DataKecamatan';
 import DataDesa from './DataDesa';
+import {CBBaju} from '../../index';
+import CBBrosur from '../CBAtrribute/CBBrosur';
 // import {getFoodDataByTypes} from '../../../redux/action';
 
 const Identitas = () => {
@@ -69,9 +72,13 @@ const QA = () => {
   );
 };
 const Attribute = () => {
+  const [isSelected, setSelection] = useState(false);
   return (
-    <View style={styles.tabView}>
-      <Text>Identitas</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Attrbiute Yang Diberikan :</Text>
+      <CBBaju label="Baju" />
+      <CBBaju label="Brosur" />
+      <CBBaju label="Spanduk" />
     </View>
   );
 };
@@ -127,5 +134,30 @@ const styles = StyleSheet.create({
   },
   tabView: {
     backgroundColor: 'white',
+  },
+
+  title: {
+    color: 'black',
+    fontFamily: 'Poppins-Medium',
+    fontSize: 16,
+    marginVertical: 14,
+  },
+  container: {
+    flex: 1,
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    flexDirection: 'column',
+    padding: 16,
+  },
+  checkboxContainer: {
+    flexDirection: 'row',
+    marginBottom: 20,
+  },
+  checkbox: {
+    borderColor: '#020202',
+  },
+  labeldata: {
+    margin: 8,
+    color: 'black',
   },
 });

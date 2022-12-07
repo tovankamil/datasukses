@@ -10,6 +10,7 @@ import BottomNavigator from './BottomNavigator';
 import MenuHome from './MenuHome';
 import Card from './Card';
 import TabListDataKoresponden from './TabListDataKoresponden';
+export * from './CBAtrribute';
 
 export {
   Header,

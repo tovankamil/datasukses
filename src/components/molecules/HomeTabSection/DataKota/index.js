@@ -38,26 +38,24 @@ export default DataKota;
 
 const Kota = ({data, label, value, onSelectChange}) => {
   return (
-    <>
-      <SelectKoresponden
-        label=""
-        value={value}
-        data={data}
-        onSelectChange={onSelectChange}
-      />
-    </>
+    <SelectKoresponden
+      label=""
+      value={value}
+      data={data}
+      onSelectChange={onSelectChange}
+    />
   );
 };
 
-const styles = StyleSheet.create({
-  data: {
-    color: 'black',
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#020202',
-    borderRadius: 8,
-    paddingHorizontal: 2,
-    paddingVertical: 0,
-  },
-});
+// const styles = StyleSheet.create({
+//   data: {
+//     color: 'black',
+//   },
+//   input: {
+//     borderWidth: 1,
+//     borderColor: '#020202',
+//     borderRadius: 8,
+//     paddingHorizontal: 2,
+//     paddingVertical: 0,
+//   },
+// });
