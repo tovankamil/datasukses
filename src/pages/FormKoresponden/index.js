@@ -1,17 +1,26 @@
 import React, {useEffect} from 'react';
+import {useState} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
-import {useDispatch} from 'react-redux';
-import {Button, Header, HomeTabSection} from '../../components';
-import {dataProvinsi} from '../../redux/action';
+import {useDispatch, useSelector} from 'react-redux';
+import {Button, Header} from '../../components';
+import HomeTabSection from '../../components/molecules/HomeTabSection';
+import {dataProvinsi, signUpKorespondenAction} from '../../redux/action';
+import {getData} from '../../utils';
 
 export default function FormKoresponden({navigation}) {
+  const globalState = useSelector(state => state.formKorespondenReducer);
   const dispatch = useDispatch();
+  const [user, setUser] = useState({});
   useEffect(() => {
     dispatch(dataProvinsi());
+    getData('token').then(data => {
+      setUser(data);
+    });
   }, []);
   const onPressLearnMore = () => {
-    console.log('onPressLearnMore');
+    dispatch(signUpKorespondenAction(globalState, navigation, user));
   };
+
   return (
     <View style={styles.content}>
       <Header

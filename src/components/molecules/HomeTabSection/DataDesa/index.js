@@ -17,7 +17,12 @@ const DataDesa = () => {
   const dispatchData = useCallback(
     value => {
       setForm('id_desa', value);
+
       // dispatch(dataDesa(value));
+      let data = {
+        desa: value,
+      };
+      dispatch({type: 'SET_DESA_KORESPONDEN', value: data});
     },
     [setForm],
   );

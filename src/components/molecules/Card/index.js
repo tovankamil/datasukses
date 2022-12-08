@@ -21,7 +21,7 @@ const Card = () => {
           </View>
           <Text style={styles.dot}>:</Text>
           <View style={styles.isi}>
-            <Text> 0929102912091201020</Text>
+            <Text style={styles.isiColor}> 0929102912091201020</Text>
           </View>
         </View>
       </View>
@@ -33,7 +33,7 @@ const Card = () => {
           </View>
           <Text style={styles.dot}>:</Text>
           <View style={styles.isi}>
-            <Text>34 tahun</Text>
+            <Text style={styles.isiColor}>34 tahun</Text>
           </View>
         </View>
       </View>
@@ -45,7 +45,7 @@ const Card = () => {
           </View>
           <Text style={styles.dot}>:</Text>
           <View style={styles.isi}>
-            <Text> 082292301999</Text>
+            <Text style={styles.isiColor}> 082292301999</Text>
           </View>
         </View>
       </View>
@@ -57,7 +57,7 @@ const Card = () => {
           </View>
           <Text style={styles.dot}>:</Text>
           <View style={styles.isi}>
-            <Text>
+            <Text style={styles.isiColor}>
               {' '}
               Jl Pancoran barat 9E Jl Pancoran barat 9EJl Pancoran barat 9EJl
               Pancoran barat 9EJl Pancoran barat 9E Jl Pancoran barat 9E
@@ -73,7 +73,7 @@ const Card = () => {
           </View>
           <Text style={styles.dot}>:</Text>
           <View style={styles.isi}>
-            <Text> Kuningan</Text>
+            <Text style={styles.isiColor}> Kuningan</Text>
           </View>
         </View>
       </View>
@@ -84,7 +84,7 @@ const Card = () => {
           </View>
           <Text style={styles.dot}>:</Text>
           <View style={styles.isi}>
-            <Text> Ciwilor</Text>
+            <Text style={styles.isiColor}> Ciwilor</Text>
           </View>
         </View>
       </View>
@@ -96,7 +96,7 @@ const Card = () => {
           </View>
           <Text style={styles.dot}>:</Text>
           <View style={styles.isi}>
-            <Text> Ciwilor</Text>
+            <Text style={styles.isiColor}> Ciwilor</Text>
           </View>
         </View>
       </View>
@@ -112,6 +112,7 @@ const styles = StyleSheet.create({
     marginTop: 14,
     padding: 14,
     paddingVertical: 25,
+    color: 'black',
   },
   boxPhoto: {
     justifyContent: 'center',
@@ -122,7 +123,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Medium',
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#000000',
+    color: 'black',
   },
   boxData: {
     backgroundColor: 'white',
@@ -149,6 +150,7 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     fontWeight: 'bold',
     fontFamily: 'Poppins-Medium',
+    color: 'black',
   },
   dot: {
     width: '2%',
@@ -156,5 +158,8 @@ const styles = StyleSheet.create({
   isi: {
     width: '68%',
     fontSize: 12,
+  },
+  isiColor: {
+    color: 'black',
   },
 });

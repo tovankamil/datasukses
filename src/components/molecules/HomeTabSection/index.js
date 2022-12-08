@@ -11,11 +11,15 @@ import {
 import {SceneMap, TabBar, TabView} from 'react-native-tab-view';
 import CheckBox from '@react-native-community/checkbox';
 import {Gap, TextInput} from '../../atoms';
+
 import DataKota from './DataKota';
 import DataKecamatan from './DataKecamatan';
 import DataDesa from './DataDesa';
 import {CBBaju} from '../../index';
 import CBBrosur from '../CBAtrribute/CBBrosur';
+import {useSelector} from 'react-redux';
+import FormProfilKoresponden from '../../atoms/FormProfilKoresponden';
+
 // import {getFoodDataByTypes} from '../../../redux/action';
 
 const Identitas = () => {
@@ -23,16 +27,7 @@ const Identitas = () => {
     <ScrollView>
       <View style={styles.tabViewContainer}>
         <View style={styles.tabView}>
-          <TextInput label="Nama Lengkap" placeholder="Masukan Nama" />
-          <Gap height={14} />
-          <TextInput label="Usia" placeholder="Masukan Usia" />
-          <Gap height={14} />
-          <TextInput label="Nik" placeholder="Masukan Nik 16 Digit" />
-          <Gap height={14} />
-          <TextInput label="Hp" placeholder="Masukan Hp" />
-          <Gap height={14} />
-          <TextInput label="Alamat" placeholder="Masukan Alamat" />
-          <Gap height={14} />
+          <FormProfilKoresponden />
 
           <Gap height={14} />
 
@@ -76,9 +71,9 @@ const Attribute = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Attrbiute Yang Diberikan :</Text>
-      <CBBaju label="Baju" />
-      <CBBaju label="Brosur" />
-      <CBBaju label="Spanduk" />
+      <CBBaju label="baju" />
+      <CBBaju label="brosur" />
+      <CBBaju label="spanduk" />
     </View>
   );
 };
@@ -96,6 +91,7 @@ const renderTabBar = props => (
 const initialLayout = {width: Dimensions.get('window').width};
 
 const HomeTabSection = () => {
+  const globalstate = useSelector(state => state.formKorespondenReducer);
   const layout = useWindowDimensions();
 
   const [index, setIndex] = React.useState(0);
@@ -104,9 +100,7 @@ const HomeTabSection = () => {
     {key: '2', title: 'Q&A'},
     {key: '3', title: 'Attribute'},
   ]);
-  const onPressLearnMore = () => {
-    console.log('onPressLearnMore');
-  };
+
   const renderScene = SceneMap({
     1: Identitas,
     2: QA,

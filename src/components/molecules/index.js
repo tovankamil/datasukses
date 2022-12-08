@@ -5,11 +5,11 @@ import SignUpNik from './SignUpNik';
 import Desa from './Desa';
 import GroupValidasi from './GroupValidasi';
 import Loading from './Loading';
-import HomeTabSection from './HomeTabSection';
+
 import BottomNavigator from './BottomNavigator';
 import MenuHome from './MenuHome';
 import Card from './Card';
-import TabListDataKoresponden from './TabListDataKoresponden';
+// import TabListDataKoresponden from './TabListDataKoresponden';
 export * from './CBAtrribute';
 
 export {
@@ -20,9 +20,7 @@ export {
   SignUpNik,
   GroupValidasi,
   Loading,
-  HomeTabSection,
   BottomNavigator,
   MenuHome,
-  TabListDataKoresponden,
   Card,
 };

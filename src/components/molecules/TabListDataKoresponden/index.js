@@ -4,14 +4,13 @@ import {
   Dimensions,
   ScrollView,
   StyleSheet,
-  Text,
   useWindowDimensions,
   View,
 } from 'react-native';
 import {SceneMap, TabBar, TabView} from 'react-native-tab-view';
-import {useDispatch, useSelector} from 'react-redux';
+
 import {ButtonPrimary} from '../..';
-import {Gap, TextInput} from '../../atoms';
+import {Gap} from '../../atoms';
 import ListDataKoresponden from '../ListDataKoresponden';
 
 const DataTerinput = () => {
@@ -51,14 +50,6 @@ const DataTerpending = () => {
     </ScrollView>
   );
 };
-const Attribute = () => {
-  return (
-    <View style={styles.tabView}>
-      <Text>Identitasx</Text>
-    </View>
-  );
-};
-
 const renderTabBar = props => (
   <TabBar
     {...props}

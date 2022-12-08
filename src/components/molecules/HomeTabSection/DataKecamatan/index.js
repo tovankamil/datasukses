@@ -17,6 +17,10 @@ const DataKecamatan = () => {
     value => {
       setForm('id_kecamatan', value);
       dispatch(dataDesa(value));
+      let data = {
+        kecamatan: value,
+      };
+      dispatch({type: 'SET_KECAMATAN_KORESPONDEN', value: data});
     },
     [setForm],
   );
@@ -63,7 +67,7 @@ const DataKecamatan = () => {
       );
     }
   };
-  console.log('form1', form);
+
   return (
     <>
       {/* <Picker selectedValue={form} onValueChange={dispatchData}>

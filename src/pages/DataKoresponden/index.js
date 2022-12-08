@@ -1,11 +1,9 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {Header, TabListDataKoresponden} from '../../components';
+import {Header} from '../../components';
+import TabListDataKoresponden from '../../components/molecules/TabListDataKoresponden';
 
 const DataKoresponden = ({navigation}) => {
-  const onPressLearnMore = () => {
-    console.log('onPressLearnMore');
-  };
   return (
     <View style={styles.content}>
       <Header

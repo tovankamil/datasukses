@@ -19,6 +19,10 @@ const DataKota = () => {
     value => {
       setForm('id_kota', value);
       dispatch(dataKecamatan(value));
+      let data = {
+        kota: value,
+      };
+      dispatch({type: 'SET_KOTA_KORESPONDEN', value: data});
     },
     [setForm],
   );
