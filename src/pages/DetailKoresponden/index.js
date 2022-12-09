@@ -2,7 +2,8 @@ import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {Card, Header} from '../../components';
 
-const DetailKoresponden = ({navigation}) => {
+const DetailKoresponden = ({route, navigation}) => {
+  const data = route.params;
   return (
     <View style={styles.container}>
       <Header
@@ -11,7 +12,7 @@ const DetailKoresponden = ({navigation}) => {
         onBack={() => navigation.goBack()}
       />
       <View>
-        <Card />
+        <Card value={data} />
       </View>
     </View>
   );

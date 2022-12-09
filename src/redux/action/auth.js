@@ -3,14 +3,9 @@ import {API_HOST} from '../../config';
 import {removeData, showMessage, storeData} from '../../utils';
 import {setLoading} from './global';
 
-export const signUpAction = (dataRegister, navigation) => (
-  dispatch,
-) => {
-
-
+export const signUpAction = (dataRegister, navigation) => dispatch => {
   Axios.post(`${API_HOST.url}/register`, dataRegister)
-    .then((res) => {
-
+    .then(res => {
       const token = `${res.data.data.token_type} ${res.data.data.access_token}`;
       const profile = res.data.data.data;
 
@@ -18,7 +13,6 @@ export const signUpAction = (dataRegister, navigation) => (
       storeData('userProfile', profile);
 
       // navigation.reset({index: 0, routes: [{name: 'SuccessSignUp'}]});
-
 
       // if (photoReducer.isUploadPhoto) {
       //   const photoForUpload = new FormData();
@@ -47,20 +41,18 @@ export const signUpAction = (dataRegister, navigation) => (
       // }
 
       dispatch(setLoading(false));
-        navigation.navigate('Home');
+      navigation.navigate('Home');
     })
-    .catch((err) => {
-console.log(err)
+    .catch(err => {
       dispatch(setLoading(false));
-      showMessage('error','danger');
+      showMessage('error', 'danger');
     });
 };
 
-export const signInAction = (form, navigation) => (dispatch) => {
-
+export const signInAction = (form, navigation) => dispatch => {
   dispatch(setLoading(true));
   Axios.post(`${API_HOST.url}/login`, form)
-    .then((res) => {
+    .then(res => {
       const token = `${res.data.data.token_type} ${res.data.data.access_token}`;
       const profile = res.data.data.data;
       dispatch(setLoading(false));
@@ -69,10 +61,9 @@ export const signInAction = (form, navigation) => (dispatch) => {
       storeData('userProfile', profile);
       navigation.reset({index: 0, routes: [{name: 'Home'}]});
     })
-    .catch((err) => {
-
+    .catch(err => {
       dispatch(setLoading(false));
       // showMessage(err?.response?.data?.data?.message);
-      showMessage('Gagal login','danger');
+      showMessage('Gagal login', 'danger');
     });
 };

@@ -70,9 +70,7 @@ const TabListDataKoresponden = () => {
     {key: '1', title: 'Data Terinput '},
     {key: '2', title: 'Data Terpending'},
   ]);
-  const onPressLearnMore = () => {
-    console.log('onPressLearnMore');
-  };
+
   const renderScene = SceneMap({
     1: DataTerinput,
     2: DataTerpending,

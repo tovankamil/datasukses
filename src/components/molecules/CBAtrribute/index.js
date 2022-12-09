@@ -1,4 +1,4 @@
 import CBBaju from './CBBaju';
-import CBBrosur from './CBBrosur';
+import CBAttributeLainnya from './CBAttributeLainnya';
 
-export {CBBaju};
+export {CBBaju, CBAttributeLainnya};

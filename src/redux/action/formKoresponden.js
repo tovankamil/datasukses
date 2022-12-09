@@ -8,19 +8,40 @@ export const signUpKorespondenAction = (
   navigation,
   token,
 ) => dispatch => {
-  console.log('dataRegister', token);
-
+  dispatch(setLoading(true));
   Axios.post(`${API_HOST.url}/registerkoresponden`, dataRegister, {
     headers: {
       Authorization: token,
+      'Content-Type': 'application/json',
     },
   })
     .then(res => {
-      const token = `${res.data.data.token_type} ${res.data.data.access_token}`;
-      const profile = res.data.data.data;
+      dispatch(setLoading(false));
+      dispatch({type: 'SET_RESET_FORM', value: 'value'});
+      navigation.navigate('DataKoresponden');
     })
     .catch(err => {
       dispatch(setLoading(false));
-      showMessage('error', 'danger');
+
+      showMessage('error', err);
+    });
+};
+
+export const getDataKoresponden = token => dispatch => {
+  dispatch(setLoading(true));
+  Axios.get(`${API_HOST.url}/registerkoresponden/all`, {
+    headers: {
+      Authorization: token,
+      'Content-Type': 'application/json',
+    },
+  })
+    .then(res => {
+      dispatch(setLoading(false));
+      dispatch({type: 'LIST_DATA_KORESPONDEN', value: res.data});
+    })
+    .catch(err => {
+      dispatch(setLoading(false));
+
+      showMessage('error', err);
     });
 };

@@ -18,6 +18,22 @@ export default function FormKoresponden({navigation}) {
     });
   }, []);
   const onPressLearnMore = () => {
+    let dataattr = '';
+    if (globalState.brosur.length > 0) {
+      dataattr += '#brosur';
+    }
+    if (globalState.spanduk.length > 0) {
+      dataattr += '#spanduk';
+    }
+    if (globalState.baju.length > 0) {
+      dataattr += '#baju';
+    }
+    if (globalState.lainnya.length > 0) {
+      dataattr += `#${globalState.lainnya}`;
+    }
+
+    Object.assign(globalState, {attribute: dataattr});
+
     dispatch(signUpKorespondenAction(globalState, navigation, user));
   };
 

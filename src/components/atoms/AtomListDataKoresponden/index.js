@@ -2,21 +2,28 @@ import React, {Component} from 'react';
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import {ICNext, UserKoresponden} from '../../../assets';
 
-const AtomListDataKoresponden = ({onPress}) => {
-  return (
-    <TouchableOpacity onPress={onPress} activeOpacity={0.89}>
+const AtomListDataKoresponden = ({onPress, value}) => {
+  const LisData = () => {
+    return (
       <View style={styles.container}>
         <View style={styles.box}>
           <View style={styles.icon}>
             <UserKoresponden />
           </View>
           <View style={styles.data}>
-            <Text style={styles.nama}> Latifa </Text>
-            <Text style={styles.alamat}> 33 Tahun , Kuningan </Text>
+            <Text style={styles.nama}>{value?.nama} </Text>
+            <Text style={styles.alamat}>
+              {`${value?.usia} Tahun ,${value?.nama_kota}-${value?.nama_kecamatan}`}{' '}
+            </Text>
           </View>
         </View>
         <ICNext />
       </View>
+    );
+  };
+  return (
+    <TouchableOpacity onPress={onPress} activeOpacity={0.89}>
+      {value && <LisData />}
     </TouchableOpacity>
   );
 };

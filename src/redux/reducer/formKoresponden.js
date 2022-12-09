@@ -15,6 +15,7 @@ const initStateRegisterKoresponden = {
   brosur: '',
   spanduk: '',
   baju: '',
+  lainnya: '',
 };
 
 export const formKorespondenReducer = (
@@ -65,6 +66,12 @@ export const formKorespondenReducer = (
       ...state,
       brosur: action.value.brosur,
     };
-
+  if (action.type === 'SET_ATTRIBUTE_LAINNYA')
+    return {
+      ...state,
+      lainnya: action.value.lainnya,
+    };
+  if (action.type === 'SET_RESET_FORM')
+    return (state = initStateRegisterKoresponden);
   return state;
 };

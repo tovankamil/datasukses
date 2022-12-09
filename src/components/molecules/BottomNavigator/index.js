@@ -1,12 +1,19 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity, View,Text} from 'react-native';
-import { Home_off, Home_on, Koresponden_off, Koresponden_on, Profile_off, Profile_on, TambahKoresponden_off, TambahKoresponden_on } from '../../../assets';
+import {StyleSheet, TouchableOpacity, View, Text} from 'react-native';
+import {
+  Home_off,
+  Home_on,
+  Koresponden_off,
+  Koresponden_on,
+  Profile_off,
+  Profile_on,
+  TambahKoresponden_off,
+  TambahKoresponden_on,
+} from '../../../assets';
 
 const Icon = ({label, focus}) => {
-
   switch (label) {
     case 'HomeData':
-        console.log(label)
       return focus ? <Home_on /> : <Home_off />;
     case 'Data':
       return focus ? <Koresponden_on /> : <Koresponden_off />;
@@ -20,10 +27,10 @@ const Icon = ({label, focus}) => {
 };
 
 const BottomNavigator = ({state, descriptors, navigation}) => {
- return (
-    <View style={{ flexDirection: 'row',backgroundColor:'green'}}>
+  return (
+    <View style={{flexDirection: 'row', backgroundColor: 'green'}}>
       {state.routes.map((route, index) => {
-        const { options } = descriptors[route.key];
+        const {options} = descriptors[route.key];
         const label =
           options.tabBarLabel !== undefined
             ? options.tabBarLabel
@@ -42,7 +49,7 @@ const BottomNavigator = ({state, descriptors, navigation}) => {
 
           if (!isFocused && !event.defaultPrevented) {
             // The `merge: true` option makes sure that the params inside the tab screen are preserved
-            navigation.navigate({ name: route.name, merge: true });
+            navigation.navigate({name: route.name, merge: true});
           }
         };
 
@@ -55,18 +62,16 @@ const BottomNavigator = ({state, descriptors, navigation}) => {
 
         return (
           <TouchableOpacity
-          key={index}
+            key={index}
             accessibilityRole="button"
-            accessibilityState={isFocused ? { selected: true } : {}}
+            accessibilityState={isFocused ? {selected: true} : {}}
             accessibilityLabel={options.tabBarAccessibilityLabel}
             testID={options.tabBarTestID}
             onPress={onPress}
             onLongPress={onLongPress}
-          style={{ flex: 1 }}
+            style={{flex: 1}}
           >
-             <Text style={{ color: isFocused ? '#673ab7' : '#222' }}>
-               {label}
-            </Text>
+            <Text style={{color: isFocused ? '#673ab7' : '#222'}}>{label}</Text>
           </TouchableOpacity>
         );
       })}

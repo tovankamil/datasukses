@@ -2,14 +2,14 @@ import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {IconUserDetail} from '../../../assets';
 
-const Card = () => {
+const Card = ({value}) => {
   return (
     <View style={styles.container}>
       <View style={styles.boxPhoto}>
         <View style={styles.icon}>
           <IconUserDetail />
         </View>
-        <Text style={styles.nama}>Tofan</Text>
+        <Text style={styles.nama}>{value.nama}</Text>
       </View>
 
       <View style={styles.line}></View>
@@ -21,7 +21,7 @@ const Card = () => {
           </View>
           <Text style={styles.dot}>:</Text>
           <View style={styles.isi}>
-            <Text style={styles.isiColor}> 0929102912091201020</Text>
+            <Text style={styles.isiColor}> {value.nik}</Text>
           </View>
         </View>
       </View>
@@ -33,7 +33,7 @@ const Card = () => {
           </View>
           <Text style={styles.dot}>:</Text>
           <View style={styles.isi}>
-            <Text style={styles.isiColor}>34 tahun</Text>
+            <Text style={styles.isiColor}>{value.usia} tahun</Text>
           </View>
         </View>
       </View>
@@ -45,7 +45,7 @@ const Card = () => {
           </View>
           <Text style={styles.dot}>:</Text>
           <View style={styles.isi}>
-            <Text style={styles.isiColor}> 082292301999</Text>
+            <Text style={styles.isiColor}> {value.hp}</Text>
           </View>
         </View>
       </View>
@@ -57,11 +57,7 @@ const Card = () => {
           </View>
           <Text style={styles.dot}>:</Text>
           <View style={styles.isi}>
-            <Text style={styles.isiColor}>
-              {' '}
-              Jl Pancoran barat 9E Jl Pancoran barat 9EJl Pancoran barat 9EJl
-              Pancoran barat 9EJl Pancoran barat 9E Jl Pancoran barat 9E
-            </Text>
+            <Text style={styles.isiColor}> {value.alamat}</Text>
           </View>
         </View>
       </View>
@@ -73,7 +69,7 @@ const Card = () => {
           </View>
           <Text style={styles.dot}>:</Text>
           <View style={styles.isi}>
-            <Text style={styles.isiColor}> Kuningan</Text>
+            <Text style={styles.isiColor}> {value.nama_kota}</Text>
           </View>
         </View>
       </View>
@@ -84,7 +80,7 @@ const Card = () => {
           </View>
           <Text style={styles.dot}>:</Text>
           <View style={styles.isi}>
-            <Text style={styles.isiColor}> Ciwilor</Text>
+            <Text style={styles.isiColor}> {value.nama_kecamatan}</Text>
           </View>
         </View>
       </View>
@@ -96,7 +92,7 @@ const Card = () => {
           </View>
           <Text style={styles.dot}>:</Text>
           <View style={styles.isi}>
-            <Text style={styles.isiColor}> Ciwilor</Text>
+            <Text style={styles.isiColor}> {value.nama_desa}</Text>
           </View>
         </View>
       </View>

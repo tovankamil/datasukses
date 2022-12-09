@@ -11,7 +11,6 @@ export const dataProvinsi = () => dispatch => {
       dispatch(setLoading(false));
     })
     .catch(err => {
-      console.log(err);
       dispatch(setLoading(false));
       showMessage('error', 'danger');
     });
@@ -26,7 +25,6 @@ export const dataKecamatan = id => dispatch => {
       dispatch(setLoading(false));
     })
     .catch(err => {
-      console.log(err);
       dispatch(setLoading(false));
       showMessage('error', 'danger');
     });
@@ -41,7 +39,6 @@ export const dataDesa = id => dispatch => {
       dispatch(setLoading(false));
     })
     .catch(err => {
-      console.log(err);
       dispatch(setLoading(false));
       showMessage('error', 'danger');
     });

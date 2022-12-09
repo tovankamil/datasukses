@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {useEffect, useState} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {BottomNavigator, Button, Gap, MenuHome} from '../../components';
@@ -44,6 +45,9 @@ const HomeData = ({navigation}) => {
         />
         <Gap height={5} />
         <MenuHome title="Profile" onPress={() => navigation.navigate('home')} />
+
+        <Gap height={5} />
+        <MenuHome title="Keluar" onPress={onSubmit} />
       </View>
     </View>
   );

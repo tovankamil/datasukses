@@ -16,9 +16,9 @@ import DataKota from './DataKota';
 import DataKecamatan from './DataKecamatan';
 import DataDesa from './DataDesa';
 import {CBBaju} from '../../index';
-import CBBrosur from '../CBAtrribute/CBBrosur';
 import {useSelector} from 'react-redux';
 import FormProfilKoresponden from '../../atoms/FormProfilKoresponden';
+import {CBAttributeLainnya} from '../CBAtrribute';
 
 // import {getFoodDataByTypes} from '../../../redux/action';
 
@@ -69,12 +69,15 @@ const QA = () => {
 const Attribute = () => {
   const [isSelected, setSelection] = useState(false);
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Attrbiute Yang Diberikan :</Text>
-      <CBBaju label="baju" />
-      <CBBaju label="brosur" />
-      <CBBaju label="spanduk" />
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.title}>Attrbiute Yang Diberikan :</Text>
+        <CBBaju label="baju" />
+        <CBBaju label="brosur" />
+        <CBBaju label="spanduk" />
+        <CBAttributeLainnya label="Lain-lain" />
+      </View>
+    </ScrollView>
   );
 };
 
