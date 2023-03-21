@@ -57,10 +57,11 @@ const styles = StyleSheet.create({
   },
   data: {
     marginLeft: 14,
+    maxWidth: '81%',
   },
   nama: {
     fontFamily: 'Poppins-Medium',
-    fontSize: 20,
+    fontSize: 16,
     color: '#000000',
     lineHeight: 25,
   },

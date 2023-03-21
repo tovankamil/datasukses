@@ -1,9 +1,9 @@
 import CheckBox from '@react-native-community/checkbox';
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {capitalizeFirstLetter} from '../../../../utils/firstCapital';
-import {Gap, TextInput} from '../../../atoms';
+import {TextInput} from '../../../atoms';
 
 const CBAttributeLainnya = ({label}) => {
   const [isSelected, setSelection] = useState(false);

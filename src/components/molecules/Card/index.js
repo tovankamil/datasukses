@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   nama: {
-    marginTop: 6,
+    marginTop: 10,
     fontFamily: 'Poppins-Medium',
     fontSize: 16,
     fontWeight: 'bold',

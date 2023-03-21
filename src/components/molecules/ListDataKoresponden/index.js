@@ -23,13 +23,12 @@ const ListDataKoresponden = () => {
   return (
     <View style={styles.container}>
       {globalState?.data?.length > 0 &&
-        globalState.data.map((value, key) => {
+        globalState.data.map((value, index) => {
           return (
-            <View>
+            <View key={index}>
               <Gap height={12} />
               <AtomListDataKoresponden
                 value={value}
-                key={key}
                 onPress={() => navigation.navigate('DetailKoresponden', value)}
               />
             </View>

@@ -17,6 +17,7 @@ export const signUpKorespondenAction = (
   })
     .then(res => {
       dispatch(setLoading(false));
+      dispatch(getDataKoresponden(token));
       dispatch({type: 'SET_RESET_FORM', value: 'value'});
       navigation.navigate('DataKoresponden');
     })
